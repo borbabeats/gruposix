@@ -3,9 +3,17 @@
 import { Container, Typography, Box, Button, Paper } from '@mui/material';
 import { CheckCircle, Home, ShoppingCart } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 export default function ObrigadoPage() {
+    const [orderNumber, setOrderNumber] = useState<string>('');
     const router = useRouter();
+
+    useEffect(() => {
+        // Gerar número do pedido apenas no client-side
+        const randomOrder = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+        setTimeout(() => setOrderNumber(randomOrder), 0);
+    }, []);
 
     return (
         <Container 
@@ -71,7 +79,7 @@ export default function ObrigadoPage() {
                         color="text.secondary"
                         sx={{ mb: 1 }}
                     >
-                        <strong>Número do Pedido:</strong> #2024{Math.floor(Math.random() * 10000).toString().padStart(4, '0')}
+                        <strong>Número do Pedido:</strong> #2024{orderNumber}
                     </Typography>
                 </Box>
 

@@ -4,7 +4,7 @@ import vslpage from "@/app/content/vslpage.json";
 import SectionTestimonials from "./sections/SectionTestimonials";
 import SectionProducts from "./sections/SectionProducts";
 import UTMCapture from "./components/UTMCapture";
-import { useUTM } from "./hooks/useUTM";
+//import { useUTM } from "./hooks/useUTM";
 
 interface VslPage {
   headline: {

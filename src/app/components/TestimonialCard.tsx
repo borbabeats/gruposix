@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Avatar from '@mui/material/Avatar';
@@ -31,7 +30,7 @@ export default function TestimonialCard({ name, text, imgUrl }: Testimonial) {
                     </Typography>
                 </div>
                 <Typography variant="body1" sx={{ fontStyle: 'italic', color: '#f8fafc' }}>
-                    "{text}"
+                    &ldquo;{text}&rdquo;
                 </Typography>
             </CardContent>
         </Card>

@@ -48,7 +48,7 @@ export default function SectionHeadline({title, subtitle, vslilink, background, 
                                 videoId={videoId}
                                 opts={opts}
                                 className="w-full h-full rounded-lg shadow-lg"
-                                onReady={(e) => console.log('YouTube player ready')}
+                                onReady={() => console.log('YouTube player ready')}
                                 onError={(e) => {
                                     console.error('YouTube error:', e);
                                     console.error('Video src:', vslilink);

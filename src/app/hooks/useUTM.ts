@@ -1,55 +1,73 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
-export function useUTM() {
-  const [utmParams, setUtmParams] = useState<Record<string, string>>({});
+type UTMParams = {
+  source?: string;
+  medium?: string;
+  campaign?: string;
+  term?: string;
+  content?: string;
+};
+
+export const useUTM = () => {
+  const [utmParams, setUtmParams] = useState<UTMParams>({});
   const searchParams = useSearchParams();
-  const router = useRouter();
 
   useEffect(() => {
-    // Capturar UTMs da URL atual
-    const params: Record<string, string> = {};
+    const params: UTMParams = {};
     
+    // Capturar UTMs da URL
     searchParams.forEach((value, key) => {
       if (key.startsWith('utm_')) {
-        params[key] = value;
+        const utmKey = key.replace('utm_', '') as keyof UTMParams;
+        params[utmKey] = value;
       }
     });
 
-    // Se encontrou UTMs, salvar no localStorage e no estado
     if (Object.keys(params).length > 0) {
-      setUtmParams(params);
-      localStorage.setItem('utm_params', JSON.stringify(params));
+      const paramsWithPrefix: Record<string, string> = {};
+      Object.entries(params).forEach(([key, value]) => {
+        if (value) {
+          paramsWithPrefix[`utm_${key}`] = value;
+        }
+      });
+      localStorage.setItem('utm_params', JSON.stringify(paramsWithPrefix));
     } else {
-      // Se não tem UTMs na URL, tentar recuperar do localStorage
-      const stored = localStorage.getItem('utm_params');
-      if (stored) {
+      const storedParams = localStorage.getItem('utm_params');
+      if (storedParams) {
         try {
-          const parsedParams = JSON.parse(stored);
-          setUtmParams(parsedParams);
+          const parsedParams = JSON.parse(storedParams);
+          const cleanedParams: UTMParams = {};
+          Object.entries(parsedParams).forEach(([key, value]) => {
+            if (key.startsWith('utm_') && typeof value === 'string') {
+              const cleanKey = key.replace('utm_', '') as keyof UTMParams;
+              cleanedParams[cleanKey] = value;
+            }
+          });
+          Object.assign(params, cleanedParams);
         } catch (error) {
           console.error('Erro ao parsear UTMs do localStorage:', error);
         }
       }
     }
+    
+    setTimeout(() => setUtmParams(params), 0);
   }, [searchParams]);
 
-  // Função para adicionar UTMs a qualquer URL
   const addUTMToUrl = (baseUrl: string) => {
     const url = new URL(baseUrl, window.location.origin);
     
     Object.entries(utmParams).forEach(([key, value]) => {
       if (value) {
-        url.searchParams.set(key, value);
+        url.searchParams.set(`utm_${key}`, value);
       }
     });
     
     return url.toString();
   };
 
-  // Função para limpar UTMs
   const clearUTM = () => {
     setUtmParams({});
     localStorage.removeItem('utm_params');

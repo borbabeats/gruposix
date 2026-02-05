@@ -6,18 +6,15 @@ import CtaButton from './CtaButton';
 import Image from 'next/image';
 import { useUTM } from '../hooks/useUTM';
 
-interface Product {
+interface ProductsCardProps {
     title: string;
     price: string;
     partialPrice: string;
     ctaText: string;
     imgUrl: string;
-    checkoutUrl?: string;
 }
 
-interface ProductsCardProps extends Product {}
-
-export default function ProductsCard({ title, price, partialPrice, ctaText, imgUrl, checkoutUrl }: ProductsCardProps) {
+export default function ProductsCard({ title, price, partialPrice, ctaText, imgUrl }: ProductsCardProps) {
     const { addUTMToUrl } = useUTM();
     
     // Adicionar UTMs ao URL de checkout
