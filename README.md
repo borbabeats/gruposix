@@ -131,4 +131,9 @@ O projeto inclui rastreamento completo:
 - **Funil de vendas** analisável
 
 
+## Lighthouse
+
+![Mobile](./screenshots/screenshot-mobile.png)
+![Desktop](./screenshots/screenshot-desktop.png)
+
 ---
