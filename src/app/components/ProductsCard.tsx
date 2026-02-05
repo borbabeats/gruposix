@@ -46,12 +46,12 @@ export default function ProductsCard({ title, price, partialPrice, ctaText, imgU
                     alt={title}
                     width={345}
                     height={550}
-                    objectFit="cover"
                     style={{
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        display: 'block'
+                        display: 'block',
+                        backgroundColor: '#f3f4f6' // Placeholder para evitar shift
                     }}
                 />
             </Box>

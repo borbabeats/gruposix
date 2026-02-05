@@ -57,10 +57,16 @@ export const useUTM = () => {
   }, [searchParams]);
 
   const addUTMToUrl = (baseUrl: string) => {
+    // Verificar se está no browser antes de usar window.location
+    if (typeof window === 'undefined') {
+      return baseUrl;
+    }
+    
     const url = new URL(baseUrl, window.location.origin);
     
     Object.entries(utmParams).forEach(([key, value]) => {
       if (value) {
+        // Adicionar com prefixo utm_ completo
         url.searchParams.set(`utm_${key}`, value);
       }
     });
