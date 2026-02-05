@@ -130,15 +130,5 @@ O projeto inclui rastreamento completo:
 - **Conversões** rastreadas
 - **Funil de vendas** analisável
 
-## Conteudo do .env.local
-
-NEXT_PUBLIC_VSL_LINK="https://www.youtube.com/watch?v=QFts-u90DWc"
-NEXT_PUBLIC_TICKET_PRICE="100"
-#NEXT_PUBLIC_CHECKOUT_LINK_1=""
-#NEXT_PUBLIC_CHECKOUT_LINK_2=""
-#NEXT_PUBLIC_CHECKOUT_LINK_3=""
-
-# Google Analytics
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
 ---
