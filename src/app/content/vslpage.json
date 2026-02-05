@@ -1,0 +1,35 @@
+{
+    "headline": {
+        "title": "Transforme sua vida em 30 dias com este método revolucionário",
+        "subtitle": "Se você compra agora, você paga apenas",
+        "background": "primary",
+        "color": "white",
+        "ctatext": "Comprar Agora"
+    },
+    "products": {
+      "title": "Produtos",
+      "product1": {
+        "title": "Termogênico",
+        "price": "R$ 199,90",
+        "imgUrl": "/img/product1.jpg"
+      }  
+    },
+    "testimonials": {
+        "title": "O que os clientes dizem",
+        "testimonial1": {
+            "name": "Carlos Silva",
+            "text": "Depois de 1 mês usando o termogênico, perdi 5kg sem mudar minha rotina. Me sinto mais disposto e com muito mais energia durante o dia todo!",
+            "imgUrl": "/img/john_doe_testimonial.jpg"
+        },
+        "testimonial2": {
+            "name": "Fernanda Oliveira",
+            "text": "Incrível como esse termogênico acelerou meus resultados na academia! Em 3 semanas já notei diferença no meu percentual de gordura e definição muscular.",
+            "imgUrl": "/img/joanne_doe_testimonial.jpg"
+        },
+        "testimonial3": {
+            "name": "Ricardo Santos",
+            "text": "Sempre tive dificuldade para emagrecer, mas com esse termogênico minha fome diminuiu muito e consigo manter a dieta sem sofrimento. Recomendo demais!",
+            "imgUrl": "/img/peter_parker_testimonial.jpg"
+        }
+    }
+}
