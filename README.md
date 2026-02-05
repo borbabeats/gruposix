@@ -133,7 +133,7 @@ O projeto inclui rastreamento completo:
 
 ## Lighthouse
 
-![Mobile](./screenshots/screenshot-mobile.png)
-![Desktop](./screenshots/screenshot-desktop.png)
+![Mobile](./public/screenshots/screenshot-mobile.png)
+![Desktop](./public/screenshots/screenshot-desktop.png)
 
 ---
