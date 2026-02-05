@@ -36,9 +36,9 @@ export default function SectionHeadline({title, subtitle, vslilink, background, 
     };
     
     return(
-        <Section className={getThemeClasses(background, color)}>
-            <h2 className="font-bold text-center mb-2">{title}</h2>
-            <p className="text-xl mb-4">{subtitle} R$ {process.env.NEXT_PUBLIC_TICKET_PRICE}</p>
+        <Section className={`${getThemeClasses(background, color)} py-25`}>
+            <h2 className="font-bold text-center mb-10">{title}</h2>
+            <p className="text-xl mb-20">{subtitle} R$ {process.env.NEXT_PUBLIC_TICKET_PRICE}</p>
             
             {videoId ? (
                 <div className="w-full max-w-2xl mx-auto">

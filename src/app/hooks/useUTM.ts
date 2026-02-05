@@ -38,7 +38,7 @@ export function useUTM() {
 
   // Função para adicionar UTMs a qualquer URL
   const addUTMToUrl = (baseUrl: string) => {
-    const url = new URL(baseUrl);
+    const url = new URL(baseUrl, window.location.origin);
     
     Object.entries(utmParams).forEach(([key, value]) => {
       if (value) {

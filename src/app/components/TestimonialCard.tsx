@@ -12,7 +12,13 @@ export interface Testimonial {
 
 export default function TestimonialCard({ name, text, imgUrl }: Testimonial) {
     return (
-        <Card sx={{ boxShadow: 3, borderRadius: 2 }}>
+        <Card sx={{ 
+            boxShadow: 3, 
+            borderRadius: 3,
+            backgroundColor: 'var(--color-primary-900)',
+            border: '3px solid',
+            borderColor: 'var(--color-primary-500)'
+        }}>
             <CardContent sx={{ p: 3 }}>
                 <div className="flex items-center mb-4">
                     <Avatar 
@@ -20,11 +26,11 @@ export default function TestimonialCard({ name, text, imgUrl }: Testimonial) {
                         alt={name}
                         sx={{ width: 48, height: 48, mr: 2 }}
                     />
-                    <Typography variant="h6" component="h4" fontWeight="bold">
+                    <Typography variant="h6" component="h4" fontWeight="bold" sx={{ color: '#f8fafc' }}>
                         {name}
                     </Typography>
                 </div>
-                <Typography variant="body1" color="text.secondary" sx={{ fontStyle: 'italic' }}>
+                <Typography variant="body1" sx={{ fontStyle: 'italic', color: '#f8fafc' }}>
                     "{text}"
                 </Typography>
             </CardContent>

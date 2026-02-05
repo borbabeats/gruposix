@@ -3,12 +3,13 @@ import Button from '@mui/material/Button';
 
 interface CtaButtonProps {
     ctaText: string;
+    checkoutUrl?: string;
 }
 
-export default function CtaButton({ctaText}: CtaButtonProps){
+export default function CtaButton({ctaText, checkoutUrl}: CtaButtonProps){
     return(
         <div className="flex justify-center mt-8">
-            <Link href={process.env.NEXT_PUBLIC_CHECKOUT_LINK || ''}>
+            <Link href={checkoutUrl || process.env.NEXT_PUBLIC_CHECKOUT_LINK || ''}>
                 <Button 
                     variant="contained" 
                     sx={{ 

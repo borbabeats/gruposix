@@ -7,12 +7,28 @@
         "ctatext": "Comprar Agora"
     },
     "products": {
-      "title": "Produtos",
+      "title": "Nossos Produtos",
       "product1": {
-        "title": "Termogênico",
+        "title": "ThermoFisio",
         "price": "R$ 199,90",
-        "imgUrl": "/img/product1.jpg"
-      }  
+        "partialPrice": "3x de R$ 66,63",
+        "imgUrl": "/img/produto1.webp",
+        "ctaText": "Comprar Agora"
+      },
+      "product2": {
+        "title": "TermaBurn",
+        "price": "R$ 184,90",
+        "partialPrice": "3x de R$ 61,63",
+        "imgUrl": "/img/produto2.webp",
+        "ctaText": "Comprar Agora"
+      },
+      "product3": {
+        "title": "Termogenic",
+        "price": "R$ 219,90",
+        "partialPrice": "3x de R$ 73,30",
+        "imgUrl": "/img/produto3.webp",
+        "ctaText": "Comprar Agora"
+      }   
     },
     "testimonials": {
         "title": "O que os clientes dizem",

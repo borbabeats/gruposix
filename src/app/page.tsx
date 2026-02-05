@@ -3,6 +3,8 @@ import SectionHeadline from "./sections/SectionHeadline";
 import vslpage from "@/app/content/vslpage.json";
 import SectionTestimonials from "./sections/SectionTestimonials";
 import SectionProducts from "./sections/SectionProducts";
+import UTMCapture from "./components/UTMCapture";
+import { useUTM } from "./hooks/useUTM";
 
 interface VslPage {
   headline: {
@@ -32,12 +34,17 @@ interface Testimonials {
 interface Product {
   title: string;
   price: string;
+  partialPrice: string;
+  ctaText: string;
   imgUrl: string;
+  checkoutUrl: string;
 }
 
 interface Products {
   title: string;
   product1: Product;
+  product2: Product;
+  product3: Product;
 }
 
 const typedVslpage = vslpage as unknown as VslPage & { testimonials: Testimonials };
@@ -51,12 +58,24 @@ const testimonialsList: Testimonial[] = [
 ];
 
 const productsList: Product[] = [
-  products.product1,
+  {
+    ...products.product1,
+    checkoutUrl: '/checkout-page'
+  },
+  {
+    ...products.product2,
+    checkoutUrl: '/checkout-page'
+  },
+  {
+    ...products.product3,
+    checkoutUrl: '/checkout-page'
+  },
 ];
 
 export default function Home() {
   return (
     <>
+    <UTMCapture />
     <SectionHeadline
      title={typedVslpage.headline.title}
      subtitle={typedVslpage.headline.subtitle}
@@ -68,14 +87,14 @@ export default function Home() {
     <SectionProducts
      title={products.title}
      products={productsList}
-     background="primary"
-     color="white"
+     background="secondary"
+     color="primary"
     />
     <SectionTestimonials
      title={testimonials.title}
      testimonials={testimonialsList}
      background="primary"
-     color="white"
+     color="primary"
      />
     </>
   );
